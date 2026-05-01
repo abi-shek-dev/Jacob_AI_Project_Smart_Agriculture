@@ -127,6 +127,9 @@ class PredictionResponse(BaseModel):
     weather_used:      bool
     model_used:        str
 
+    # Suppress Pydantic V2 warning about 'model_' prefix
+    model_config = {"protected_namespaces": ()}
+
 
 # -- Helper: Fetch real-time weather ------------------------------------------
 
