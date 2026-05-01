@@ -10,9 +10,11 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   ScrollView,
   Alert,
   ActivityIndicator,
+  Keyboard,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Slider from "@react-native-community/slider";
