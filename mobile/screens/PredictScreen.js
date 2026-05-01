@@ -13,10 +13,8 @@ import {
   ScrollView,
   Alert,
   ActivityIndicator,
-  StatusBar,
-  Keyboard,
-  TouchableWithoutFeedback,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import Slider from "@react-native-community/slider";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
@@ -141,7 +139,7 @@ export default function PredictScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
+        <StatusBar style="light" backgroundColor={COLORS.primaryDark} />
 
         {/* ── Header ─────────────────────────────────────────────────────── */}
         <LinearGradient
@@ -228,7 +226,7 @@ export default function PredictScreen({ navigation }) {
 
           {/* ── Predict button ────────────────────────────────────────────── */}
           <TouchableOpacity
-            style={[styles.predictBtn, loading && styles.predictBtnDisabled]}
+            style={[styles.predictBtn, loading ? styles.predictBtnDisabled : null]}
             onPress={handlePredict}
             disabled={loading}
             activeOpacity={0.85}

@@ -10,9 +10,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   Animated,
-  StatusBar,
   ScrollView,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS, SPACING, RADIUS, SHADOW } from "../constants/theme";
@@ -50,7 +50,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
+      <StatusBar style="light" backgroundColor={COLORS.primaryDark} />
 
       {/* ── Hero gradient banner ──────────────────────────────────────────── */}
       <LinearGradient

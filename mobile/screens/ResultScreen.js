@@ -15,9 +15,9 @@ import {
   ScrollView,
   TouchableOpacity,
   Animated,
-  StatusBar,
   Dimensions,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS, SPACING, RADIUS, SHADOW } from "../constants/theme";
@@ -117,7 +117,7 @@ export default function ResultScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
+      <StatusBar style="light" backgroundColor={COLORS.primaryDark} />
 
       {/* ── Header ───────────────────────────────────────────────────────── */}
       <LinearGradient colors={[COLORS.primaryDark, COLORS.primary]} style={styles.header}>
