@@ -50,7 +50,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" backgroundColor={COLORS.primaryDark} />
+      <StatusBar style="light" backgroundColor={COLORS.primaryDark} translucent={false} />
 
       {/* ── Hero gradient banner ──────────────────────────────────────────── */}
       <LinearGradient

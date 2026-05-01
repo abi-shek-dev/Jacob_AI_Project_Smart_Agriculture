@@ -117,7 +117,7 @@ export default function ResultScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" backgroundColor={COLORS.primaryDark} />
+      <StatusBar style="light" backgroundColor={COLORS.primaryDark} translucent={false} />
 
       {/* ── Header ───────────────────────────────────────────────────────── */}
       <LinearGradient colors={[COLORS.primaryDark, COLORS.primary]} style={styles.header}>

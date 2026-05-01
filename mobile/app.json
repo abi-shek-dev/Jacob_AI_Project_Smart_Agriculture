@@ -22,7 +22,7 @@
         "backgroundColor": "#0D1B0E"
       },
       "package": "com.smartagriculture.ai",
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"

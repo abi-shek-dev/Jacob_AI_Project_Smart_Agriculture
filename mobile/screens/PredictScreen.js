@@ -139,7 +139,7 @@ export default function PredictScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <StatusBar style="light" backgroundColor={COLORS.primaryDark} />
+        <StatusBar style="light" backgroundColor={COLORS.primaryDark} translucent={false} />
 
         {/* ── Header ─────────────────────────────────────────────────────── */}
         <LinearGradient
@@ -189,6 +189,7 @@ export default function PredictScreen({ navigation }) {
                 minimumTrackTintColor={COLORS.primaryLight}
                 maximumTrackTintColor={COLORS.border}
                 thumbTintColor={COLORS.accent}
+                enabled={true}
               />
 
               {/* Min / Max labels */}
