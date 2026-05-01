@@ -3,7 +3,7 @@
 // Main input screen where users adjust soil parameters via sliders and text
 // inputs, then submit to the FastAPI /predict endpoint.
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import {
   View,
   Text,
@@ -97,9 +97,13 @@ export default function PredictScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   // ── Handle slider change ──────────────────────────────────────────────────
-  const handleSlider = (key, val) => {
-    setValues((prev) => ({ ...prev, [key]: parseFloat(val.toFixed(2)) }));
-  };
+  const handleSlider = useCallback((key, val) => {
+    // Round to appropriate precision based on step size
+    const field = FIELDS.find(f => f.key === key);
+    const precision = field.step < 1 ? 1 : 0;
+    const roundedVal = parseFloat(val.toFixed(precision));
+    setValues((prev) => ({ ...prev, [key]: roundedVal }));
+  }, []);
 
   // ── Call the FastAPI /predict endpoint ────────────────────────────────────
   const handlePredict = async () => {
@@ -172,7 +176,10 @@ export default function PredictScreen({ navigation }) {
                 {/* Current value badge */}
                 <View style={styles.valueBadge}>
                   <Text style={styles.valueText}>
-                    {values[field.key].toFixed(field.step < 1 ? 1 : 0)} {field.unit}
+                    {(() => {
+                      const precision = field.step < 1 ? 1 : 0;
+                      return values[field.key].toFixed(precision);
+                    })()} {field.unit}
                   </Text>
                 </View>
               </View>
